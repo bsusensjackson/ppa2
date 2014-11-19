@@ -9,13 +9,13 @@ var fixDates = function (encounterData) {
 
 var colorData = function() {
   var $elements = $('.elapsedDays');
-      $elements.each(function(){
-        if ($(this).text() > 30) {
-          $(this).css("background", "red");
-        } if ($(this).text() > 15 && $(this).text() < 30) {
-          $(this).css("background", "yellow");
-        };
-      })
+  $elements.each(function(){
+    if ($(this).text() > 30) {
+      $(this).css("background", "red");
+    } else if ($(this).text() > 15 && $(this).text() < 30) {
+      $(this).css("background", "yellow");
+    };
+  });
 }
 
 var setGrid = function(container, callback) {
