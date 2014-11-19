@@ -7,43 +7,49 @@ var fixDates = function (encounterData) {
   return betterDates;
 };
 
-var setTableId = function (callback) {
-  $('.dx-datagrid-table').slice(1).each(function() {
-    $(this).attr('id', 'table2');
-  });
-  callback();
-};
+var colorData = function() {
+  var $elements = $('.elapsedDays');
+      $elements.each(function(){
+        if ($(this).text() > 30) {
+          $(this).css("background", "red");
+        } if ($(this).text() > 15 && $(this).text() < 30) {
+          $(this).css("background", "yellow");
+        };
+      })
+}
 
 var setGrid = function(container, callback) {
   container.dxDataGrid({
-        dataSource: fixedDataSet,
-        columns: [
-          { dataField: 'Clinician', width: 120 },
-          { dataField: 'PatientId', width: 100},
-          { dataField: 'PatientName', width: 120},
-          { dataField: 'EncounterStartDate', width:120, format: 'shortDate'},
-          { dataField: 'EncounterEndDate', width: 120, format: 'shortDate'},
-          { dataField: 'ElapsedDays', width: 100}
-          ], 
-        columnChooser: { enabled: true },
-        pager: { visible: true },
-        paging: { pageSize: 7 }
-      });
-  callback();
+    dataSource: fixedDataSet,
+    columns: [
+      { dataField: 'Clinician', width: 120 },
+      { dataField: 'PatientId', width: 100},
+      { dataField: 'PatientName', width: 120},
+      { dataField: 'EncounterStartDate', width:120, format: 'shortDate'},
+      { dataField: 'EncounterEndDate', width: 120, format: 'shortDate'},
+      { dataField: 'ElapsedDays', width: 100, cssClass: 'elapsedDays'}
+    ], 
+    columnChooser: { enabled: true },
+    pager: { visible: true },
+    paging: { pageSize: 7 }
+  });
 }
 
 $(function () {
   $.getJSON("javascripts/encounterdetail.json", function (encounterData) {
     fixedDataSet = fixDates(encounterData);
-    setGrid($('#gridContainer'), function() {
-
-      $('.dx-datagrid-table').slice(1).each(function () {
-        $(this).attr('id', 'table2');
-      });
-      $('#table2 tr td:nth-child(6)').each(function () {
-        $(this).css("background", "red");
-      });
+    setGrid($('#gridContainer'));
+    
+    setTimeout(function(){ //Color Data Initially
+      colorData();
+    }, 50)
+    
+    $('.dx-pages').click(function (){ //Set Event Listener for Pagination
+      setTimeout(function() {
+        colorData();
+      }, 50)
     });
+    
   }).fail(function(err) {
     console.log("error");
   });
