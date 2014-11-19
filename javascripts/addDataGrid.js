@@ -1,9 +1,9 @@
 var fixDates = function (encounterData) {
-      betterDates = encounterData.map(function (data) {
-      data["EncounterStartDate"] = new Date(data["EncounterStartDate"]);
-      data["EncounterEndDate"] = new Date(data["EncounterEndDate"]);
-      return data;
-    });
+  betterDates = encounterData.map(function (data) {
+    data["EncounterStartDate"] = new Date(data["EncounterStartDate"]);
+    data["EncounterEndDate"] = new Date(data["EncounterEndDate"]);
+    return data;
+  });
   return betterDates;
 };
 
