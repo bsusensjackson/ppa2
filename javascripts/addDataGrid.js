@@ -16,24 +16,27 @@ var colorData = function() {
       $(this).css("background", "yellow");
     };
   });
-}
+};
 
 var setGrid = function(container, callback) {
   container.dxDataGrid({
     dataSource: fixedDataSet,
     columns: [
-      { dataField: 'Clinician', width: 120 },
-      { dataField: 'PatientId', width: 100},
-      { dataField: 'PatientName', width: 120},
-      { dataField: 'EncounterStartDate', width:120, format: 'shortDate'},
-      { dataField: 'EncounterEndDate', width: 120, format: 'shortDate'},
-      { dataField: 'ElapsedDays', width: 100, cssClass: 'elapsedDays'}
+      { dataField: 'Clinician' },
+      { dataField: 'PatientId' },
+      { dataField: 'PatientName' },
+      { dataField: 'EncounterStartDate', format: 'shortDate'},
+      { dataField: 'EncounterEndDate', format: 'shortDate'},
+      { dataField: 'ElapsedDays', cssClass: 'elapsedDays'}
     ], 
     columnChooser: { enabled: true },
     pager: { visible: true },
-    paging: { pageSize: 7 }
+    paging: { pageSize: 7 },
+    width: function(){
+      return "100%";
+    }
   });
-}
+};
 
 $(function () {
   $.getJSON("javascripts/encounterdetail.json", function (encounterData) {
@@ -42,12 +45,13 @@ $(function () {
     
     setTimeout(function(){ //Color Data Initially
       colorData();
-    }, 50)
+    }, 50);
     
     $('.dx-pages').click(function (){ //Set Event Listener for Pagination
+      
       setTimeout(function() {
         colorData();
-      }, 50)
+      }, 50);
     });
     
   }).fail(function(err) {
