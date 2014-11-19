@@ -3,9 +3,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/globalize/0.1.1/globalize.min.js"></script>
-    <script type="text/javascript" src="http://cdn3.devexpress.com/jslib/14.1.8/js/dx.webappjs.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/globalize/0.1.1/globalize.min.js"></script>
+        <link rel="stylesheet" href="stylesheets/jquery.mobile.icons.min.css" />
+        <link rel="stylesheet" href="stylesheets/jquery.mobile.structure-1.4.2.min.css" />
+        <link href="stylesheets/jquery.mobile.structure-1.4.2.min.css" rel="stylesheet" />
+        <link rel="text/javascript" href="javascripts/dataGrid.js">
+        <link rel="text/javascript" href="javascripts/dxAll.js">
+        
         <link rel="stylesheet" type="text/css" href="http://cdn3.devexpress.com/jslib/14.1.8/css/dx.common.css" />
         <link rel="stylesheet" type="text/css" href="http://cdn3.devexpress.com/jslib/14.1.8/css/dx.light.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -13,29 +18,25 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/> 
     <link rel="stylesheet" href="stylesheets/comhar-2.0.6.min.css" />
 
-    <link rel="stylesheet" href="stylesheets/jquery.mobile.icons.min.css" />
-    <link rel="stylesheet" href="stylesheets/jquery.mobile.structure-1.4.2.min.css" />
-    <link href="stylesheets/jquery.mobile.structure-1.4.2.min.css" rel="stylesheet" />
-    <link rel="text/javascript" href="javascripts/dataGrid.js">
-    <link rel="text/javascript" href="javascripts/dxAll.js"
+  
 
 <meta charset="utf-8" />
       
 
 
-    <script src="javascripts/test.js"></script>
-    <script type="text/javascript">
-      $(function () {
-         $('#button-container').dxButton();
-          });
-    </script>
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/globalize/0.1.1/globalize.min.js"></script>
+    <link rel="stylesheet" href="stylesheets/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://cdn3.devexpress.com/jslib/14.1.8/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="http://cdn3.devexpress.com/jslib/14.1.8/css/dx.light.css" />
 </head>
 <body>
-  <div id="button-container"></button>
+  
     <form id="form1" >
 
         <div data-role="page" id="ETCM" data-theme="c" data-dom-cache="false">
-
+            
             <div data-role="panel" id="leftPanel" data-position="left" data-display="push">
                 <ul data-role="listview">
                     <li><a href="#Outpatient">OutPatient</a></li>
@@ -120,61 +121,8 @@
                             </div>
                         </div>
                         <div data-role="collapsible">
-                          <div id="gridContainer" style="width:100%"></div>
                             <h3>Encounter Details</h3>
-                            <p>
-                                <table id="" style="width: 100%; border-collapse: collapse;" data-theme="c" >
-                                    <thead style="width:100%">
-                                        <tr style="width: 100%; border: 1px solid #CCCCCC" data-theme="a">
-                                            <td rowspan="2" style="border: 1px solid #CCCCCC; background-color: #e7edfd">Clinician</td>
-                                            <td colspan="2" style="border: 1px solid #CCCCCC; background-color: #e7edfd">Person</td>
-                                            <td colspan="3" style="border: 1px solid #CCCCCC; background-color: #e7edfd">Encounter Date</td>
-                                        </tr>
-                                        <tr style="width:100%" data-theme="a">
-                                            <td style="border: 1px solid #CCCCCC; background-color: #e7edfd;">ID</td>
-                                            <td style="border: 1px solid #CCCCCC; background-color: #e7edfd;">Name</td>
-                                            <td style="border: 1px solid #CCCCCC; background-color: #e7edfd;">First</td>
-                                            <td style="border: 1px solid #CCCCCC; background-color: #e7edfd;">Last</td>
-                                            <td style="border: 1px solid #CCCCCC; background-color: #e7edfd;">Days Elapsed</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr style="width:100%" data-theme="a">
-                                            <td style="border: 1px solid #CCCCCC">Nancy Jones</td>
-                                            <td style="border: 1px solid #CCCCCC">1734125</td>
-                                            <td style="border: 1px solid #CCCCCC">David K</td>
-                                            <td style="border: 1px solid #CCCCCC">1/5/2014</td>
-                                            <td style="border: 1px solid #CCCCCC">1/30/2014</td>
-                                            <td style="border: 1px solid #CCCCCC;background-color:#f9f7a4">25</td>
-                                        </tr>
-                                        <tr style="width:100%" data-theme="a">
-                                            <td style="border: 1px solid #CCCCCC">Nancy Jones</td>
-                                            <td style="border: 1px solid #CCCCCC">172105</td>
-                                            <td style="border: 1px solid #CCCCCC">Yago S</td>
-                                            <td style="border: 1px solid #CCCCCC">1/6/2014</td>
-                                            <td style="border: 1px solid #CCCCCC">2/11/2014</td>
-                                            <td style="border: 1px solid #CCCCCC;background-color:#fbb0b0">36</td>
-                                        </tr>
-                                        <tr style="width:100%" data-theme="a">
-                                            <td style="border: 1px solid #CCCCCC">Billy Brains</td>
-                                            <td style="border: 1px solid #CCCCCC">2012102</td>
-                                            <td style="border: 1px solid #CCCCCC">Buster K</td>
-                                            <td style="border: 1px solid #CCCCCC">2/12/2014</td>
-                                            <td style="border: 1px solid #CCCCCC">3/22/2014</td>
-                                            <td style="border: 1px solid #CCCCCC;background-color:#c6fbc6">10</td>
-                                        </tr>
-                                        <tr style="width:100%" data-theme="a">
-                                            <td style="border: 1px solid #CCCCCC">Bill Brains</td>
-                                            <td style="border: 1px solid #CCCCCC">12012103</td>
-                                            <td style="border: 1px solid #CCCCCC">Virgil I</td>
-                                            <td style="border: 1px solid #CCCCCC">2/10/2014</td>
-                                            <td style="border: 1px solid #CCCCCC">2/20/2014</td>
-                                            <td style="border: 1px solid #CCCCCC;background-color:#c6fbc6">10</td>
-                                        </tr>
-                                    </tbody>
-
-                                </table>
-                            </p>
+                            <div id="gridContainer" style="width:100%; height:auto;"></div>
                         </div>
                     </div>
                     <div data-role="collapsible" data-collapsed-icon="arrow-r" data-collapsed="false">
@@ -357,6 +305,9 @@
     <script src="javascripts/modernizr-2.7.2.js"></script>
     <script src="javascripts/dashboardApi-1.0.0.js"></script>
     <script src="javascripts/dashboard-1.0.0.js"></script>
+    <script src="javascripts/dataGrid.js"></script>
+    <script src="javascripts/dxAll.js"></script>
+    <script src="javascripts/addDataGrid.js"></script>
 
 </body>
 </html>

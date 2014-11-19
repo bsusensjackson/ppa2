@@ -2,7 +2,7 @@ require 'rack'
 require 'erb'
 class Test
   def call(env)
-    Rack::Response.new(render("index.html.erb"))
+    Rack::Response.new(render("index.html"))
   end
 
   def render(template)
