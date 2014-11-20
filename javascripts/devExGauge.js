@@ -1,39 +1,46 @@
 $(function() {
-  $('#dx-test').click(function(){
-    setTimeout(function(){ //Delay until chart container is visible in DOM. 
-      $('#chart2-TCM-01-01').dxCircularGauge({
-        scale: {
-          startValue: 0, endValue: 100,
-          majorTick: {
-            color: '#536878',
-            tickInterval: 10
-          },
-          label: {
-            indentFromTick: 3
-          }
-      },
-      rangeContainer: {
-        offset: 10,
-        ranges: [
-          { startValue: 0, endValue: 30, color: '#92000A' },
-          { startValue: 30, endValue: 70, color: '#E6E200' },
-          { startValue: 70, endValue: 100, color: '#77DD77' }
-        ]
-      },
-      valueIndicator: {
-        offset: 50
-      },
-      subvalueIndicator: {
-        offset: -25
-      },
-      title: {
-        text: 'Blended Enhanced and ACT',
-        font: { size: 28 }
-      },
-      value: 85,
-      subvalues: [40, 90]
-      });
-    }, 1)
+  $.getJSON("/javascripts/summary.json", function (summaryData) {
+    $('#dx-test').click(function(){
+      setTimeout(function(){ //Delay until chart container is visible in DOM. 
+        $('#chart2-TCM-01-01').dxCircularGauge({
+          scale: {
+            startValue: 0, endValue: 100,
+            majorTick: {
+              color: '#536878',
+              tickInterval: 10
+            },
+            label: {
+              customizeText: function (arg) {
+                return arg.valueText + ' %';
+              },
+              indentFromTick: 3
+            }
+        },
+        rangeContainer: {
+          offset: 10,
+          ranges: [
+            { startValue: summaryData[0]["RedFrom"], endValue: summaryData[0]["RedTo"], color: '#92000A' },
+            { startValue: summaryData[0]["YellowFrom"], endValue: summaryData[0]["YellowTo"], color: '#E6E200' },
+            { startValue: summaryData[0]["GreenFrom"], endValue: summaryData[0]["GreenTo"], color: '#77DD77' }
+          ]
+        },
+        valueIndicator: {
+          offset: 20,
+        },
+        subvalueIndicator: {
+          offset: -25
+        },
+        title: {
+          text: 'Blended Enhanced and ACT',
+          font: { size: 28 }
+        },
+        subtitle: {
+          text: 'Percent Compliant'
+        },
+        value: summaryData[3].CompliancePercent,
+        });
+      }, 1);
+    });
   });
 });
 
