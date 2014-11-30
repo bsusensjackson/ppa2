@@ -18,7 +18,7 @@ var colorData = function() {
   });
 };
 
-var setGrid = function(container, callback) {
+var setGrid = function(container) {
   container.dxDataGrid({
     dataSource: fixedDataSet,
     columns: [
@@ -38,23 +38,3 @@ var setGrid = function(container, callback) {
   });
 };
 
-$(function () {
-  $.getJSON("javascripts/encounterdetail.json", function (encounterData) {
-    fixedDataSet = fixDates(encounterData);
-    setGrid($('#gridContainer'));
-    
-    setTimeout(function(){ //Color Data Initially
-      colorData();
-    }, 50);
-    
-    $('.dx-pages').click(function (){ //Set Event Listener for Pagination
-      
-      setTimeout(function() {
-        colorData();
-      }, 50);
-    });
-    
-  }).fail(function(err) {
-    console.log("error");
-  });
-});
