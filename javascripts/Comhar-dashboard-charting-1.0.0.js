@@ -2,7 +2,7 @@
 
 Comhar.eW.Dashboard.Charting.GetCharts = function () {
    
-    $('#chart-TCM-01-01').highcharts({
+   $('#chart-TCM-01-01').highcharts({
 
         chart: {
             type: 'gauge',

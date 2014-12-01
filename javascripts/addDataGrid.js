@@ -1,50 +1,42 @@
 var fixDates = function (encounterData) {
-      betterDates = encounterData.map(function (data) {
-      data["EncounterStartDate"] = new Date(data["EncounterStartDate"]);
-      data["EncounterEndDate"] = new Date(data["EncounterEndDate"]);
-      return data;
-    });
+  betterDates = encounterData.map(function (data) {
+    data["EncounterStartDate"] = new Date(data["EncounterStartDate"]);
+    data["EncounterEndDate"] = new Date(data["EncounterEndDate"]);
+    return data;
+  });
   return betterDates;
 };
 
-var setTableId = function (callback) {
-  $('.dx-datagrid-table').slice(1).each(function() {
-    $(this).attr('id', 'table2');
+var colorData = function() {
+  var $elements = $('.elapsedDays');
+  $elements.each(function(){
+    if ($(this).text() > 30) {
+      $(this).css("background", "#CC0000");
+      $(this).css("color", "#ffffff");
+    } else if ($(this).text() > 15 && $(this).text() < 30) {
+      $(this).css("background", "yellow");
+    };
   });
-  callback();
 };
 
-var setGrid = function(container, callback) {
+var setGrid = function(container) {
   container.dxDataGrid({
-        dataSource: fixedDataSet,
-        columns: [
-          { dataField: 'Clinician', width: 120 },
-          { dataField: 'PatientId', width: 100},
-          { dataField: 'PatientName', width: 120},
-          { dataField: 'EncounterStartDate', width:120, format: 'shortDate'},
-          { dataField: 'EncounterEndDate', width: 120, format: 'shortDate'},
-          { dataField: 'ElapsedDays', width: 100}
-          ], 
-        columnChooser: { enabled: true },
-        pager: { visible: true },
-        paging: { pageSize: 7 }
-      });
-  callback();
-}
-
-$(function () {
-  $.getJSON("javascripts/encounterdetail.json", function (encounterData) {
-    fixedDataSet = fixDates(encounterData);
-    setGrid($('#gridContainer'), function() {
-
-      $('.dx-datagrid-table').slice(1).each(function () {
-        $(this).attr('id', 'table2');
-      });
-      $('#table2 tr td:nth-child(6)').each(function () {
-        $(this).css("background", "red");
-      });
-    });
-  }).fail(function(err) {
-    console.log("error");
+    dataSource: fixedDataSet,
+    columns: [
+      { dataField: 'Clinician' },
+      { dataField: 'PatientId' },
+      { dataField: 'PatientName' },
+      { dataField: 'EncounterStartDate', format: 'shortDate', allowFiltering: true},
+      { dataField: 'EncounterEndDate', format: 'shortDate', allowFiltering: true},
+      { dataField: 'ElapsedDays', cssClass: 'elapsedDays'}
+    ], 
+    columnChooser: { enabled: true },
+    filterRow: { visible: true },
+    pager: { visible: true },
+    paging: { pageSize: 7 },
+    width: function(){
+      return "100%";
+    }
   });
-});
+};
+
