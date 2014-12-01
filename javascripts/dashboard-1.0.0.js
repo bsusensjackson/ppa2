@@ -419,10 +419,10 @@ $(function () {
     
     $('#tcm-03-01').on('click', function() {
       highCharts.tcmChart0301($('#chart-TCM-03-01'), summaryData);
-    }) 
+    }); 
     $('#tcm-04-01').on('click', function() {
       highCharts.tcmChart0401($('#chart-TCM-04-01'), summaryData);
-    })
+    });
   });
 
   $.getJSON("javascripts/encounterdetail.json", function (encounterData) {
@@ -442,14 +442,12 @@ $(function () {
 
     $('#download-CSV').click(function(){
       var jsonString = JSON.stringify(encounterData);
-      var csvString = csvConverter.ConvertToCSV(jsonString);
+      var csvString = csvConverter.convertCSV(jsonString);
       window.open("data:text/csv;charset=utf-8," + escape(csvString));
     });
     
-    $('.dx-datagrid-headers').on('click', function(){
-       console.log('yolo')
+    $('.dx-datagrid-action-cursor').on('click', function(){
        setTimeout(function() {
-        
         colorData();
       }, 50);
     })
