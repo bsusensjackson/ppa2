@@ -405,17 +405,27 @@ $(function () {
   });
 
   $.getJSON("/javascripts/summary.json", function(summaryData) {
-    $('#dx-test').click(function(){
+    $('#tcm-01-01').on('click', function(){
       setTimeout(function(){ //Delay until chart container is visible in DOM. 
-        tcmChart01($('#chart2-TCM-01-01'), summaryData)
+        dxChart.tcmChart01($('#chart2-TCM-01-01'), summaryData)
       }, 1);
+
+      highCharts.tcmChart0102($('#chart-TCM-01-02'), summaryData);
     });
-    highCharts.tcmChart0102($('#chart-TCM-01-02'), summaryData);
-    highCharts.tcmChart0201($('#chart-TCM-02-01'), summaryData);
-    highCharts.tcmChart0301($('#chart-TCM-03-01'), summaryData);
-    highCharts.tcmChart0401($('#chart-TCM-04-01'), summaryData);
+
+    $('#tcm-02-01').on('click', function() {
+      highCharts.tcmChart0201($('#chart-TCM-02-01'), summaryData);
+    });
+    
+    $('#tcm-03-01').on('click', function() {
+      highCharts.tcmChart0301($('#chart-TCM-03-01'), summaryData);
+    }) 
+    $('#tcm-04-01').on('click', function() {
+      highCharts.tcmChart0401($('#chart-TCM-04-01'), summaryData);
+    })
   });
-$.getJSON("javascripts/encounterdetail.json", function (encounterData) {
+
+  $.getJSON("javascripts/encounterdetail.json", function (encounterData) {
     fixedDataSet = fixDates(encounterData);
     setGrid($('#gridContainer'));
     
@@ -429,7 +439,20 @@ $.getJSON("javascripts/encounterdetail.json", function (encounterData) {
         colorData();
       }, 50);
     });
+
+    $('#download-CSV').click(function(){
+      var jsonString = JSON.stringify(encounterData);
+      var csvString = csvConverter.ConvertToCSV(jsonString);
+      window.open("data:text/csv;charset=utf-8," + escape(csvString));
+    });
     
+    $('.dx-datagrid-headers').on('click', function(){
+       console.log('yolo')
+       setTimeout(function() {
+        
+        colorData();
+      }, 50);
+    })
   }).fail(function(err) {
     console.log("error");
   });

@@ -73,7 +73,7 @@
             <div role="main" class="ui-content" data-theme="c">
                 <h1>ETCM</h1>
                 <div data-role="collapsible" data-collapsed-icon="arrow-r" data-collapsed="true" data-theme="b" data-content-theme="c">
-                    <h3 id="dx-test">TCM 01:Service Delivery and Continuity of Care</h3>
+                    <h3 id="tcm-01-01">TCM 01:Service Delivery and Continuity of Care</h3>
                     <div data-role="collapsible" data-collapsed-icon="arrow-r" data-collapsed="false">
                         <h3>Percent of authorizations having at least one 31 day gap between services</h3>
                         <div class="ui-grid-a ui-responsive">
@@ -124,6 +124,7 @@
                         <div data-role="collapsible">
                             <h3>Encounter Details</h3>
                             <div id="gridContainer" style="width:100%; height:auto;"></div>
+                            <div id="download-CSV">Download as CSV</div>
                         </div>
                     </div>
                     <div data-role="collapsible" data-collapsed-icon="arrow-r" data-collapsed="false">
@@ -174,7 +175,7 @@
                     </div>
                 </div>
                 <div data-role="collapsible" data-collapsed-icon="arrow-r" data-collapsed="true" data-theme="b" data-content-theme="a">
-                    <h3>TCM 02:Service Delivery and Continuity of Care</h3>
+                    <h3 id="tcm-02-01">TCM 02:Service Delivery and Continuity of Care</h3>
                     <div data-role="collapsible" data-collapsed-icon="arrow-r" data-collapsed="false">
                         <h3>Percent of authorizations having at least two 31 day gaps between services</h3>
                         <div id="chart-TCM-02-01"></div>
@@ -182,7 +183,7 @@
                     </div>
                 </div>
                 <div data-role="collapsible" data-collapsed-icon="arrow-r" data-collapsed="true" data-theme="b" data-content-theme="a">
-                    <h3>TCM 03:Assessment and Service Delivery</h3>
+                    <h3 id="tcm-03-01">TCM 03:Assessment and Service Delivery</h3>
                     <div data-role="collapsible" data-collapsed-icon="arrow-r" data-theme="b" data-collapsed="false">
                         <h3>Percent of persons having a least one impatient admission</h3>
                         <div id="chart-TCM-03-01"></div>
@@ -191,7 +192,7 @@
 
                 </div>
                 <div data-role="collapsible" data-collapsed-icon="arrow-r" data-collapsed="true" data-theme="b" data-content-theme="a">
-                    <h3>TCM 04:Assessment and Service Delivery</h3>
+                    <h3 id="tcm-04-01">TCM 04:Assessment and Service Delivery</h3>
                     <div data-role="collapsible" data-collapsed-icon="arrow-r" data-theme="b" data-collapsed="false">
                         <h3>Percent having a TCM contact within 2 days of inpatient admission</h3>
                         <div id="chart-TCM-04-01"></div>
@@ -302,7 +303,7 @@
     <script src="javascripts/modules/exporting.js"></script>
     <script src="javascripts/knockout-3.1.0.debug.js"></script>
     <script src="javascripts/knockout-3.1.0.js"></script>
-
+    <script src="javascripts/json2csv.js"></script>
     <script src="javascripts/modernizr-2.7.2.js"></script>
     <script src="javascripts/dashboardApi-1.0.0.js"></script>
     <script src="javascripts/dashboard-1.0.0.js"></script>
