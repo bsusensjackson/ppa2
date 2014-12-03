@@ -34,6 +34,15 @@ var setGrid = function(container) {
     filterRow: { visible: true },
     pager: { visible: true },
     paging: { pageSize: 7 },
+    contentReadyAction: function(e) {
+    e.element.find('.dx-header-row .dx-datagrid-action-cursor')
+    .on('click', function() { 
+      setTimeout(function(){ 
+        colorData();
+      }, 100)
+       
+    });
+  },
     width: function(){
       return "100%";
     }
